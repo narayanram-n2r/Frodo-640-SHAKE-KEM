@@ -88,41 +88,5 @@ def check_sk():
         return jsonify({'message': "Secret Key guess was incorrect.\n The Server refused to yield!"}), 400
 
 
-# @app.route('/encaps', methods=['POST'])
-# def encapsulate():
-#     data = request.get_json()
-#     if 'public_key' not in data:
-#         return jsonify({'error': 'Required parameters missing'}), 400
-#     public_key = data['public_key']
-    # filename = os.path.join('student_files', f"{string_value}.txt")
-    # if not filename:
-    #     return jsonify({'error': 'Invalid UID'}), 400
-    # with open(filename, 'r') as file:
-    #     content = file.read()
-    #     variant = content.split('Variant: ')[1].split('\n')[0]
-    # kem_instance = FrodoKEM("FrodoKEM-640-SHAKE")
-    # ct, ss_e = kem_instance.kem_encaps(bytes.fromhex(public_key))
-    # return jsonify({'ct': ct.hex().upper(), 'ss_e': ss_e.hex().upper()}), 200
-
-
-# @app.route('/decaps', methods=['POST'])
-# def decapsulate():
-#     data = request.get_json()
-#     if 'UID' not in data or 'secret_key' not in data or 'cipher_text' not in data:
-#         return jsonify({'error': 'Missing parameters'}), 400
-#     string_value = data['UID']
-#     secret_key = data['secret_key']
-#     cipher_text = data['cipher_text']
-#     filename = os.path.join('student_files', f"{string_value}.txt")
-#     if not filename:
-#         return jsonify({'error': 'Invalid UID'}), 400
-#     with open(filename, 'r') as file:
-#         content = file.read()
-#         variant = content.split('Variant: ')[1].split('\n')[0]
-#     kem_instance = FrodoKEM(variant)
-#     ss_d = kem_instance.kem_decaps(bytes.fromhex(secret_key), bytes.fromhex(cipher_text))
-#     return jsonify({'ss_d': ss_d.hex().upper()}), 200
-
-
 if __name__ == '__main__':
     app.run(debug=True)
