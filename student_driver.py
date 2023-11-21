@@ -18,7 +18,7 @@ def check_server():
 
 
 def generate_keypair(string_value):
-    data = {'string': string_value}
+    data = {'UID': string_value}
     response = requests.post(first_interface, json=data)
     if response.status_code == 200:
         response_data = response.json()
